@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "esno src/index"
+  },
+  "devDependencies": {
+    "esno": "^0.14.1",
+    "playwright": "^1.20.2"
+  }
+}

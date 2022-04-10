@@ -1,0 +1,25 @@
+name: Schedule
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '25 12 * * *'
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+          run_install: true
+      - run: pnpx playwright install-deps chromium
+      - run: pnpm start
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: update'
+          file_pattern: screenshots/*.png
