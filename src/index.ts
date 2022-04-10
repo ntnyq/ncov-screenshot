@@ -10,7 +10,7 @@ interface TakeScreenshotOptions {
 }
 
 export async function getScreenshot() {
-  const browser = await chromium.launch({ headless: false })
+  const browser = await chromium.launch()
   const context = await browser.newContext({ ...iphone })
 
   async function take({
